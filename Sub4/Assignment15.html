@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Assignment</title>
+
+        <style>
+            img{
+                height:50px;
+                width:auto;
+            }
+        </style>
+
+        <script>
+            var index = 1;
+
+            function leftConfig(){
+                if(index==1){
+                    document.getElementById("left").style="display:none";
+                }else if(index>1){
+                    index-=1;
+                    changeimg();
+                }
+            }
+            function rightConfig(){
+                if(index==4){
+                    document.getElementById("right").style="display:none";
+                }else if(index<4){
+                    index+=1;
+                    changeimg();
+                }
+            }
+            function changeimg(){
+                switch(index){
+                    case 1:
+                        document.getElementById("slide").src='assets/A14_1.jpg';
+                        document.getElementById("left").style="display:none";
+                        document.getElementById("right").style="display:inline";
+                        break;
+                    case 2:
+                        document.getElementById("slide").src='assets/A14_2.jpg';
+                        document.getElementById("left").style="display:inline";
+                        document.getElementById("right").style="display:inline";
+                        break;
+                    case 3:
+                        document.getElementById("slide").src='assets/A14_3.jpg';
+                        document.getElementById("left").style="display:inline";
+                        document.getElementById("right").style="display:inline";
+                        break;
+                    case 4:
+                        document.getElementById("slide").src='assets/A14_4.jpg';
+                        document.getElementById("left").style="display:inline";
+                        document.getElementById("right").style="display:none";
+                        break;
+                    default:
+                        document.write("Something messed up");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <img src="assets/A14_0.jpg" id="slide" style="height:500px;width:auto;"><br>
+        <img src="assets/A15_0.png" onclick="leftConfig()" id="left" style="display:none">
+        <img src="assets/A15_1.png" onclick="rightConfig()" id="right">
+    </body>
+</html>

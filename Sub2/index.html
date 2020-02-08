@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Sub Assignment 2</title>
+
+    <style>
+        body{
+            background-color:black;
+            background-image: radial-gradient(rgb(0, 0, 0), rgba(174, 0, 255, 0.192));
+            background-attachment: fixed;
+            background-size:cover;
+            background-repeat:no-repeat;
+            color:white;
+        }
+        table{
+            font-size:20px;
+            text-align: center;
+            border-style: solid;
+            border-color:white;
+            border-radius: 15px;;
+        }
+        th{
+            border-bottom: solid grey;
+            font-size:35px;
+        }
+        .ID{
+            color:wheat;
+            font-size:25px;
+        }
+        .EMAIL{
+            color:red;
+        }
+        .FNAME{
+            color:aqua;
+        }
+        .LNAME{
+            color:cadetblue;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+
+            $.getJSON("https://reqres.in/api/users", function(data){
+                console.log(data.data);
+                var entry_data = '';
+                $.each(data.data, function(key, value){
+                    entry_data += '<tr>';
+                    entry_data += '<td class="ID">'+value.id+'</td>';
+                    entry_data += '<td class="EMAIL">'+value.email+'</td>';
+                    entry_data += '<td class="FNAME">'+value.first_name+'</td>';
+                    entry_data += '<td class="LNAME">'+value.last_name+'</td>';
+                    entry_data += '<td><img src="'+value.avatar+'"></td>';
+                    entry_data += '</tr>';
+                });
+                $('#disp_table').append(entry_data);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+    <table width="100%" id="disp_table">
+        <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Avatar</th>
+        </tr>
+    </table>
+</body>
+
+
+</html>

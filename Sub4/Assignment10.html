@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Assignment</title>
+
+        <style>
+            img{
+                width:400px;
+                height:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="assets/A10_0.jpg" id="img0" alt="error">
+        <img src="assets/A10_1.jpg" id="img1" alt="error">
+        <img src="assets/A10_2.jpg" id="img2" alt="error">
+
+        <img src="assets/A10_3.jpg" alt="error" onmouseover="change()" onmouseout="ret()">
+   </body>
+    <script>
+        function change(){
+            document.getElementById("img0").src="assets/A10_00.jpg";
+            document.getElementById("img1").src="assets/A10_10.jpg";
+            document.getElementById("img2").src="assets/A10_20.png";
+        }
+        function ret(){
+            document.getElementById("img0").src="assets/A10_0.jpg";
+            document.getElementById("img1").src="assets/A10_1.jpg";
+            document.getElementById("img2").src="assets/A10_2.jpg";
+        }
+    </script>
+</html>

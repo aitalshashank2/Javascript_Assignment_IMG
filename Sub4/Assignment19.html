@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        
+    </body>
+
+    <script>
+
+        var d = new Date();
+        var cookieA = document.cookie.split('; ');
+
+        if(cookieA.length != 3){
+            var res = document.cookie;
+            var multiple = res.split(";");
+            for(var i = 0; i < multiple.length; i++) {
+                var key = multiple[i].split("=");
+                document.cookie = key[0]+" =; expires = Thu, 01 Jan 1970 00:00:00 UTC";
+            }
+
+
+
+            document.write("This is your first time here... Welcome...<br><br>");
+            document.cookie="number=1";
+            document.cookie="prevSession=NULL";
+            document.cookie="currSession="+d.toUTCString();
+        }else{
+            var cookieA = document.cookie.split('; ');
+            document.cookie="number="+(parseInt(cookieA[0].split('=')[1])+1);
+            document.cookie="prevSession="+cookieA[2].split('=')[1];
+            document.cookie="currSession="+d.toUTCString();
+        }
+        var cookieF = document.cookie.split('; ');
+
+        document.write("The number of times you visited me: " + cookieF[0].split('=')[1]);
+        document.write("<br>Last time you visited me: "+cookieF[1].split('=')[1]);
+
+    </script>
+</html>

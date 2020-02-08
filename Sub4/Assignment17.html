@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <img src="assets/A17.webp" onclick="openWin()" alt="Error">
+        <form>
+            <input type="button" value="Close" onclick="closeWin()">
+        </form>
+    </body>
+
+    <script>
+        function openWin(){
+            newWin = window.open("https://www.google.com", "_blank", "width=1000, height=1000");
+        }
+        function closeWin(){
+            newWin.close();
+        }
+    </script>
+</html>

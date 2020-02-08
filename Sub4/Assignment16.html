@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+
+    <style>
+        img{
+            height:72px;
+            width:72px;
+        }
+    </style>
+    <body>
+        <table onmouseover="clearInterval(anim)" onmouseout="anim = setInterval(disp, 1000)">
+
+
+            <tbody><tr valign="top" align="center"><td>
+            <img src="assets/A16_0.jpg" id="mar1">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <img src="assets/A16_0.jpg" id="mar2">
+            </td></tr>
+            
+            <tr valign="top" align="center"><td>
+            &nbsp;<br><br>
+            </td></tr>
+            
+            
+            <tr valign="top" align="center"><td>
+            <img src="assets/A16_0.jpg" id="mar6">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <img src="assets/A16.jpg">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <img src="assets/A16_0.jpg" id="mar3">
+            </td></tr>
+            
+            <tr valign="top" align="center"><td>
+            &nbsp;<br><br>
+            </td></tr>
+            
+            
+            
+            <tr valign="top" align="center"><td>
+            <img src="assets/A16_0.jpg" id="mar5">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <img src="assets/A16_0.jpg" id="mar4">
+            </td></tr>
+            
+            
+            </tbody></table>
+    </body>
+
+    <script>
+        index = 1;
+
+        function disp(){
+
+            if(index==1){
+                document.getElementById("mar6").src="assets/A16_0.jpg";
+            }else{
+                document.getElementById("mar"+(index-1).toString()).src="assets/A16_0.jpg";
+            }
+            document.getElementById("mar"+index.toString()).src="assets/A16.jpg";
+
+            if(index==6){
+                index=1;
+            }else{
+                index=index+1;
+            }
+        }
+
+        anim = setInterval(disp, 1000);
+    </script>
+</html>

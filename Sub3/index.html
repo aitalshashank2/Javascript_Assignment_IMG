@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sub assignment 3</title>
+
+        <link href="../Sub1/indexStyle.css" type="text/css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script>
+            function assign(){
+                var email = document.getElementById("Email").value;
+                var passwd = document.getElementById("passwd").value;
+
+                $.post("https://reqres.in/api/login", 
+                {
+                    "email":email,
+                    "password":passwd
+                },
+                function(data, status){
+                    if(status == "success"){
+                        console.log(data);
+                        
+                        alert("Login successful. Here's the token: " + data.token);
+                    }else{
+                        alert("Invalid credentials.");
+                    }
+                });
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="content">
+                <form>
+                    <br><br>
+                    Email: <input type="email" placeholder="email" id="Email"><br>
+                    Password: <input type="password" id="passwd"><br><br>
+                    <input type="button" value="Submit" onclick="assign()">
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <img src="assets/A18.jpeg" alt="Error" onclick="fiveWin()">
+
+        <form>
+            <input type="button" value="Random Window" onclick="randWin()">
+        </form>
+    </body>
+
+    <script>
+        function fiveWin(){
+            var leftCen=(screen.width-250)/2;
+            var topCen=(screen.height-250)/2;
+
+            a=window.open("https://www.google.com/", "", "height=250, width=250, top=0, left=0");
+            b=window.open("https://www.google.com/", "", "height=250, width=250, top="+(screen.height-250)+", left=0");
+            c=window.open("https://www.google.com/", "", "height=250, width=250, top=0, left="+(screen.width-250)+"");
+            d=window.open("https://www.google.com/", "", "height=250, width=250, top="+(screen.height-250)+",left="+(screen.width-250)+"");
+            e=window.open("https://www.google.com/", "", "height=250, width=250, top="+topCen+", left="+leftCen);
+
+            window.onbeforeunload = function(){
+                a.close();
+                b.close();
+                c.close();
+                d.close();
+                e.close();
+                f.close();
+            } 
+        }
+
+        function randWin(){
+            randomVarheight = Math.random() * (screen.height-500);
+            randomVarwidth = Math.random() * (screen.width-500);
+
+            f=window.open("https://www.google.com", "", "height=250, width=250, top="+randomVarheight+", left="+randomVarwidth)+"";
+        }
+    </script>
+</html>
