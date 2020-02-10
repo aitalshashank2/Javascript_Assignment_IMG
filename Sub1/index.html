@@ -42,6 +42,7 @@
 
     <script>
         function trig(){
+            var score=0;
             var UserName = document.getElementById("Uname").value;
             var email = document.getElementById("Email").value;
             var Age = document.getElementById("age").value;
@@ -59,23 +60,29 @@
 
 
             if(UserName == ""){
+                score++;
                 alert("Do you think you are He-Who-Must-Not-Be-Named!? Avada Write-your-name-ra");
             }
 
             if(!/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email)){
                 alert("Do you speak via owls? Sorry, we don't use them here. Enter a valid email id...");
+                score++;
             }
 
             if(Age <= 0){
                 alert("Hey, are you from future? Negative age... nice");
+                score++;
             }else if(Age >= 200){
                 alert("You are really ancient. Hows the world after " + Age + " years?");
+                score++;
             }
 
             if(password == "" || cnfpasswd == ""){
                 alert("You've got to do something of your privacy. One of the ways is passwords.");
+                score++;
             }else if(password != cnfpasswd){
                 alert("Passwords don't match");
+                score++;
             }
             var genderText = "";
 
@@ -91,12 +98,17 @@
                     break;
                 default:
                     genderText = "genius";
+                    score++;
             }
+            if(score==0){
+            
+                newWin = window.open("about:blank", "_blank", "height=500, width=500");
 
-            newWin = window.open("about:blank", "_blank", "height=500, width=500");
-
-            newWin.document.write("You are " + UserName + ".<br>Your e-mail id is " + email +
-            ".<br> You are " + Age + " years old.<br> You are a " + genderText + ".<br> You are a qualified " + qual + ".");
+                newWin.document.write("You are " + UserName + ".<br>Your e-mail id is " + email +
+                ".<br> You are " + Age + " years old.<br> You are a " + genderText + ".<br> You are a qualified " + qual + ".");
+            }else{
+                alert("Enter the details again.");
+            }
             
         }
     </script>
